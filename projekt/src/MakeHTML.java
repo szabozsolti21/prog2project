@@ -23,15 +23,12 @@ public class MakeHTML {
             String FoIndex = "";
 
             char[] patharray = path.toCharArray();
-            int pontok = -6;
+            int pontok = calculatePoints(Main.fokonyvtar);
             for(char e : patharray){
                 if(e == '/') pontok ++;
             }
 
-            if(pontok == 0){
-
-            }
-            else{
+            if(pontok != 0){
                 for (int i = 0 ; i < pontok ; i++ )
 
                 FoIndex+="../";
@@ -96,7 +93,7 @@ public class MakeHTML {
             String FoIndex = "";
 
             char[] patharray = path.toCharArray();
-            int pontok = -6;
+            int pontok = calculatePoints(Main.fokonyvtar);;
             int melyseg = 6;
             for(char e : patharray){
                 if(e == '/') pontok ++;
@@ -130,10 +127,9 @@ public class MakeHTML {
             //visszanyil faljbairasa
             if (path.equals(Main.fokonyvtar) == true)
                 out.add("<pre><a href=" + "Index.html" + ">&#9^^</a></pre>");
-            else{
+            else {
                 out.add("<pre><a href=" + "../Index.html" + ">&#9^^</a></pre>");
             }
-            out.add("melyseg: "+melyseg);
 
             //Mappak fajlbairasa
             Indexek = getSubFolders(path);
@@ -182,6 +178,16 @@ public class MakeHTML {
 
 
     ///////////////////////////////////////////// MakeHtml vege, tovabbi metodusok /////////////////////////////////////
+
+    private static int calculatePoints(String fokonyvtar) {
+        int sum = 0;
+
+        for(char c : fokonyvtar.toCharArray()){
+            if(c == '/') sum++;
+        }
+        System.out.println("pontok szama: "+sum);
+        return -sum;
+    }
 
     private static List<String> getSubFolders(String path) {
 
