@@ -7,6 +7,5 @@ Készítette: Szabó Zsolt
 A program egy megadott mappaszerkezetet bejárva az ott található képfájlokból hoz létre egy képnézegető html weblapot.
 A célmappa elérési útját argumentumként kell megadni.
 
-A program nem működik tökéletesen, további fejlesztésre szorul.
 
 A projekt tartalmaz egy DeleteHTML programot, ami az adott mappában lévő html fájlokat törli.
